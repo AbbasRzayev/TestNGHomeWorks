@@ -40,7 +40,7 @@ public class homeWork1 {
         closeDriver();
     }
 
-    @Test
+    @Test  (dependsOnMethods = "checkSiteUrl")
     public void checkSiteTittle() throws InterruptedException {
         /*
         3.	Kullanıcı Turbo.az linkine sağ klik yapıp yeni sekmede açar
@@ -66,8 +66,8 @@ public class homeWork1 {
         closeDriver();
     }
 
-    @Test
-    public void CheckLettersCount() throws InterruptedException {
+    @Test  (dependsOnMethods = "checkSiteTittle")
+    public void checkLettersCount() throws InterruptedException {
         /*
         6.	Kullanici “yeni elan” butonuna basar
         7.	Kullanici yeni elan linkine gectigini title ile dogrular
@@ -97,7 +97,7 @@ public class homeWork1 {
         softAssert.assertEquals(expectedMezmunSybol, actualMezmunSybol, "Simvol sayi 100");
     }
 
-    @Test
+    @Test  (dependsOnMethods = "checkLettersCount")
     public void checkNotValidDatas() {
         /*
         12.	Kullanici “şekil elave et” butonuna basar
@@ -107,6 +107,7 @@ public class homeWork1 {
         16.	Kullanici devam et butonuna basar
         17.	Kullanici “Вu xana boş qalmamalıdır” uyarisinin çıkana kadar 15 ve 16. İşlemi denemeye devam eder.
          */
+
         getDriver().get(ConfigReader.getProperty("tapAz"));
         page.yeniElan.click();
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
