@@ -65,7 +65,7 @@ public class homeWork1 {
         softAssert.assertEquals(expectedTapTittle, actualTapTittle, "Url tittle");
         closeDriver();
     }
-
+//close
     @Test  (dependsOnMethods = "checkSiteTittle")
     public void checkLettersCount() throws InterruptedException {
         /*
